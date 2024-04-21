@@ -9,15 +9,17 @@ const app = express();
 
 const ports = process.env.PORT || 3001;
 
-const mysql = require("mysql");
+const mysql = require("mysql2");
 const db = mysql.createConnection({
 
   host: "localhost",
   user: "root",
   password: "Saumya#237",
-  database: "dbmspr",
-
-});
+  database: "dbmsproject",
+  authPlugins: {
+    'mysql_clear_password': mysql.authPlugins.mysql_clear_password
+}
+}); 
 
 app.use(bodyParser.json());
 
@@ -50,6 +52,7 @@ app.get("/api/departments/", (req, res) => {
     if (error) {
       console.log("Error Connecting to DB");
     } else {
+      console.log(result);
       res.send({ status: true, data: result });
     }
   });
