@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Route} from 'react-router-dom';
+import {Routes } from 'react-router-dom';
 
 // Import your components
 import HomeComponent from './components/home';
@@ -20,10 +22,10 @@ function App() {
     <Router>
       <Routes>
         {/* Define your routes here */}
-        <Route
+        {/* <Route
           path="/"
           element={<AuthGuard><HomeComponent /></AuthGuard>}
-        />
+        /> */}
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/signup" element={<SignupComponent />} />
         <Route path="/home" element={<HomeComponent />} />

@@ -5,16 +5,16 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Import your components
-import HomeComponent from './booked/src/components/Home';
-import LoginComponent from './src/components/Login';
-import SignupComponent from './dd/components/Signup';
-import DepartmentComponent from './components/Department';
-import CreateProfileComponent from './components/CreateProfile';
-import ProfileComponent from './components/Profile';
-import PostingPageComponent from './components/PostingPage';
+import HomeComponent from './components/home';
+import LoginComponent from './components/login';
+import SignupComponent from './components/signup';
+import DepartmentComponent from './components/department';
+import CreateProfileComponent from './components/create-profile';
+import ProfileComponent from './components/profile';
+import PostingPageComponent from './components/posting-page';
 
 // Import the AuthGuard (you might need to implement this as a wrapper around your routes in React)
-import AuthGuard from './services/AuthGuard';
+import AuthGuard from './services/auth-guard-services';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         {/* Define your routes here */}
         <Route
           path="/"
-          element={<AuthGuard><HomeComponent /></AuthGuard>}
+          element={AuthGuard(<HomeComponent />)}
         />
         <Route path="/login" element={<LoginComponent />} />
         <Route path="/signup" element={<SignupComponent />} />

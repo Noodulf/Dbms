@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { checkAuthStatus, authService } from 'src/app/services/authService'; // Import your auth service or utility
+import { checkAuthStatus, authService } from '../services/auth-services'; // Import your auth service or utility
 
 const NavigationComponent = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

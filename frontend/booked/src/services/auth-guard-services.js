@@ -3,14 +3,14 @@ import { useNavigate, Navigate } from 'react-router-dom';
 import { useAuth } from '../services/auth-services'; // Import your auth service or hook
 
 const withAuthGuard = (Component) => {
-    return (props) => {
+    return function (props) {
         const navigate = useNavigate();
         const isAuthenticated = useAuth(); // Replace this with your own function to check if the user is authenticated
 
         // Check authentication status
         if (!isAuthenticated) {
             console.log('User is not logged in. Redirecting to login.');
-            // Redirect to login page if not authenticated
+            navigate('/login');
             return <Navigate to="/login" replace />;
         } else {
             console.log('User is logged in. Allowing access.');
